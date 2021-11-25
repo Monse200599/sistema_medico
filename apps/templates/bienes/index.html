@@ -1,100 +1,96 @@
 {% extends 'layouts/base.html' %}
 
-{% block title %} Areas {% endblock title %}
+{% block title %} Bienes {% endblock title %}
 
 {% block content %}
 
-{% comment %} Header {% endcomment %}
-<div class="header bg-primary pb-6">
-	<div class="container-fluid">
-		<div class="header-body">
-		<div class="row align-items-center py-4">
-			<div class="col-lg-6 col-7">
-			<h6 class="h2 text-white d-inline-block mb-0">Bienes</h6>
-			<nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-				<ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-				<li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-				<li class="breadcrumb-item"><a href="">Bienes</a></li>
-				</ol>
-			</nav>
-			</div>
-			<div class="col-lg-6 col-5 text-right">
-			<a href="crear/" class="btn btn-sm btn-neutral">Nuevo bien</a>
-			<a href="#" class="btn btn-sm btn-neutral">Filters</a>
-			</div>
-		</div>
-		</div>
-	</div>
-</div>
+  {% comment %} Header {% endcomment %}
+  <div class="header bg-teal pb-6">
+    <div class="container-fluid">
+      <div class="header-body">
+        <div class="row align-items-center py-4">
+          <div class="col-lg-6 col-7">
+            <h6 class="h2 text-white d-inline-block mb-0">Bienes</h6>
+            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+              <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                <li class="breadcrumb-item"><a href="#">Bienes</a></li>
+              </ol>
+            </nav>
+          </div>
+          <div class="col-lg-6 col-5 text-right">
+            <a href= "agregar/" class="btn btn-sm btn-neutral">Nuevo bien</a>
+            <a href="#" class="btn btn-sm btn-neutral">Filtrar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div class="container-fluid mt--6">
-	<div class="row">
-		<div class="col">
-		<div class="card">
-			<!-- Card header -->
-			<div class="card-header border-0">
-			<h3 class="mb-0">Bienes</h3>
-			</div>
-			<div class="table-responsive">
-				<table class="table align-items-center table-flush">
-				<thead class="thead-light">
-				<tr>
-					<th scope="col" class="sort" data-sort="Tipo">Tipo</th>
-					<th scope="col" class="sort" data-sort="Unidades"># Unidades</th>
-					<th scope="col" class="sort" data-sort="Cajas"># Cajas</th>
-					<th scope="col" class="sort" data-sort="Lote">Lote</th>
-					<th scope="col" class="sort" data-sort="Caducidad">Caducidad</th>
-					<th scope="col" class="sort" data-sort="Tipo de bienes">Tipo de bienes</th>
-					<th scope="col" class="sort" data-sort="acciones">Acciones</th>
-				</tr>
-				</thead>
-				<tbody class="list">
-					{% for bien in bienes  %}
-					<tr>
-					<td class="budget">
-						{{bien.tipo}}
-					</td>
-					<td class="budget">
-						{{bien.num_unidades}}
-					</td>
-					<td class="budget">
-						{{bien.num_cajas}}
-					</td>
-					<td class="budget">
-						{{bien.lote}}
-					</td>
-					<td class="budget">
-						{{bien.caducidad}}
-					</td>
-					<td class="budget">
-						{{bien.tipo_bienes}}
-					</td>
-					<td class="text-right">
-						<div class="dropdown">
-						<a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							<i class="fas fa-ellipsis-v"></i>
-						</a>
-						<form method="POST" action="eliminar/{{bien.id}}/">
-						{% csrf_token %}
-							<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-							<a class="dropdown-item" href="editar/{{area.id}}/">Editar</a>
-							<button class="dropdown-item" onclick="return eliminar();" type="submit">Eliminar</button>
-							</div>							
-						</form>
-						</div>
-					</td>
-					</tr>
-					{% endfor %}
+  <div class="container-fluid mt--6">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <!-- Card header -->
+          <div class="card-header border-0">
+            <h3 class="mb-0">Bienes</h3>
+          </div>
+            <div class="table-responsive">
+              <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col" class="sort" data-sort="Tipo">Nombre</th>
+                  <th scope="col" class="sort" data-sort="Unidades"> Num. Unidades</th>
+                  <th scope="col" class="sort" data-sort="Cajas">Num. Cajas</th>
+                  <th scope="col" class="sort" data-sort="Lote">Lote</th>
+                  <th scope="col" class="sort" data-sort="Caducidad">Caducidad</th>
+                  <th scope="col" class="sort" data-sort="Tipo de bienes">Tipo de bienes</th>
+                </tr>
+              </thead>
+                <tbody class="list">
+                  {% for bien in bienes  %}
+                  <tr>
+                    <td class="budget">
+                      {{bien.tipo}}
+                    </td>
+                    <td class="budget">
+                      {{bien.num_unidades}}
+                    </td>
+                    <td class="budget">
+                      {{bien.num_cajas}}
+                    </td>
+                    <td class="budget">
+                      {{bien.lote}}
+                    </td>
+                    <td class="budget">
+                      {{bien.caducidad}}
+                    </td>
+                    <td class="budget">
+                      {{bien.tipo_bienes}}
+                    </td>
+                    <td class="text-right">
+                      <div class="dropdown">
+                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="fas fa-ellipsis-v"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                          <a class="dropdown-item" href="actualizar/{{bien.id}}">Editar</a>
+                          <a class="dropdown-item" href="eliminar/{{bien.id}}">Eliminar</a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  {% endfor %}
 
 
-				</tbody>
-				</table>
-			</div>
-			</div>
-		</div>
-		</div>
-	</div>
-</div>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 {% endblock content %}
 

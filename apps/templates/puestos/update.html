@@ -1,0 +1,35 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Puesto {% endblock title %}
+
+{% block content %}
+
+
+<form method = "POST" enctype = "multipart/form-data">{% csrf_token %}
+ <br><br>  
+    <div class="container">
+          <div class="col">
+        <div class="card">
+     <div class="card-header border-0">
+    <div>
+    <h2> Actualizar Puesto <h2>
+    </div>
+    <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        {{form.nombre}}
+        {% comment %} <input type="text" class="form-control form-control-alternative" id="nombre" name = "nombre" placeholder="Nombre del área"> {% endcomment %}
+      </div>
+    </div>
+    <div class="col-md-6"> 
+      <div class="form-group">
+        <button type="submit" class="btn btn-info">Acutalizar</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}{% endblock javascripts %}

@@ -1,11 +1,10 @@
-# -*- encoding: utf-8 -*-
-"""
-Copyright (c) 2019 - present AppSeed.us
-"""
-
-from django.urls import path, re_path
+from apps.bienes import views
+from django.urls import path
 from apps.bitacoras import views
-from django.http import HttpResponse
+
 urlpatterns = [
-    path('', views.index, name='bitacoras')
+    path('', views.listar_bitacoras, name='listar_bitacoras'),
+    path('agregar/', views.agregar_bitacora, name='agregar_bitacora'),
+    path('actualizar/<int:pk>/', views.actualizar_bitacora, name='actualizar_bitacora'),
+    path('eliminar/<int:pk>/', views.eliminar_bitacora, name='eliminar_bitacora'),
 ]

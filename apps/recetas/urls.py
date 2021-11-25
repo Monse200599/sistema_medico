@@ -1,11 +1,8 @@
-# -*- encoding: utf-8 -*-
-"""
-Copyright (c) 2019 - present AppSeed.us
-"""
-
-from django.urls import path, re_path
+from django.urls import path
 from apps.recetas import views
-from django.http import HttpResponse
 urlpatterns = [
-    path('', views.index, name='recetas')
+    path('', views.listar_recetas, name='listar_recetas'),
+    path('agregar/', views.agregar_receta, name='agregar_receta'),
+    path('actualizar/<int:pk>/', views.actualizar_receta, name='actualizar_receta'),
+    path('eliminar/<int:pk>/', views.eliminar_receta, name='eliminar_receta'),
 ]

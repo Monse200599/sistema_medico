@@ -17,7 +17,7 @@
 
 */
 :root {
-  --blue: #5e72e4;
+  --blue: #5e72e4; 
   --indigo: #5603ad;
   --purple: #8965e0;
   --pink: #f3a4b5;
@@ -44,6 +44,8 @@
   --white: #fff;
   --neutral: #fff;
   --darker: black;
+  --MediumTurquoise: #48d1cc;  
+  --PaleTurquoise: #AFEEEE; 
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
@@ -66,16 +68,16 @@ html {
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block; }
 
-body {
-  margin: 0;
-  font-family: Open Sans, sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #525f7f;
-  text-align: left;
-  background-color: #f8f9fe; }
-
+  body {
+    margin: 0;
+    font-family: Open Sans, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #ADD8E6;
+    text-align: left;
+    background-color: #87CEEB; }
+  
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important; }
 
@@ -11978,7 +11980,7 @@ textarea[resize="horizontal"] {
   .icon-lg i, .icon-lg svg {
     font-size: 3.25rem; }
   .icon-lg + .icon-text {
-    width: calc(100% - $icon-size-lg - 1); }
+    width: calc(100% - $icon-size-lg - 1);}
 
 .icon-sm {
   width: 2rem;
