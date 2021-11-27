@@ -5,6 +5,7 @@ from rest_framework.viewsets import ViewSet
 from apps.areas.models import Area
 from apps.api.areas.serializers import AreaSerializer
 
+# Métodos para los endpoints del crud de Areas
 class AreasViewSet(ViewSet):
     def list(self, request):
         serializer = AreaSerializer(Area.objects.all(), many=True)
