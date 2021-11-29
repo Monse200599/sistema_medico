@@ -11,7 +11,8 @@ class BienesForm(forms.ModelForm):
             'num_cajas',
             'lote',
             'caducidad',
-            'tipo_bienes'
+            'tipo_bienes',
+            'codigo_barras'
         ]
         widgets = {
             "tipo": forms.TextInput(attrs={'class': 'form-control form-control-alternative', 'placeholder': 'Nombre del bien'}),
@@ -20,5 +21,6 @@ class BienesForm(forms.ModelForm):
             "num_cajas":  forms.NumberInput(attrs={'class': 'form-control form-control-alternative', 'placeholder': 'Número de cajas'}),
             "lote": forms.TextInput(attrs={'class': 'form-control form-control-alternative', 'placeholder': 'Lote'}),
             "caducidad": forms.DateInput(attrs={'type':'date', 'class': 'form-control form-control-alternative datepicker', 'placeholder': 'Caducidad'}),
-            "tipo_bienes": forms.Select(attrs={'class': 'form-control form-control-alternative', 'placeholder': 'Tipo bien'})
+            "tipo_bienes": forms.Select(attrs={'class': 'form-control form-control-alternative', 'placeholder': 'Tipo bien'}),
+            "codigo_barras": forms.TextInput(attrs={'class': 'form-control form-control-alternative', 'placeholder': 'Código de barras', 'id': 'codigo_barras'}),
         }

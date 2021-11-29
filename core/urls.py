@@ -20,6 +20,7 @@ urlpatterns = [
     path("bitacoras/", include("apps.bitacoras.urls")),
     path("puestos/", include("apps.puestos.urls")),
     path("recetas/", include("apps.recetas.urls")),
+    path("empleados/", include("apps.empleados.urls")),
     path("api/", include(router_area.urls)),
     path("api/", include(router_bienes.urls)),
     path("api/", include(router_bitacoras.urls)),

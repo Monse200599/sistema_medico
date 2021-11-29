@@ -3,71 +3,87 @@
 {% block title %} Bienes {% endblock title %}
 
 {% block content %}
+<script>
+   var barcode = '';
+   var interval;
+   document.addEventListener('keydown', function (evt) {
+      if (interval)
+         clearInterval(interval);
+      if (evt.code == 'Enter') {
+         if (barcode)
+            handleBarcode(barcode);
+         barcode = '';
+         return;
+      }
+      if (evt.key != 'Shift')
+         barcode += evt.key;
+      interval = setInterval(() => barcode = '', 20);
+   });
 
-<form method = "POST" enctype = "multipart/form-data">
-{% csrf_token %}
- <br><br>  
-    <div class="container">  
-          <div class="col"> 
-            <div class="card">
-     <div class="card-header border-0">
-    <div>
-    <h2> Agregar Bienes <h2>
-     <div style="background-color: Gray 900">
-    </div>
-    <div class="row">
+   function handleBarcode(scanned_barcode) {
+      document.querySelector('#codigo_barras').innerHTML = scanned_barcode;
+   }
+</script>
+<form method="POST" enctype="multipart/form-data">
+   {% csrf_token %}
+   <br><br>
+   <div class="container">
+      <div class="col">
+         <div class="card">
+            <div class="card-header border-0">
+               <div>
+                  <h2> Agregar Bienes <h2>
+                        <div style="background-color: Gray 900">
+                        </div>
+                        <div class="row">
 
-      <div class="col-md-6">
-       <div class="form-group">
-       {{form.tipo}}
-        {% comment %} <input type="text" class="form-control form-control-alternative" id="tipo" name = "Nombre" placeholder="Nombre del bien"> {% endcomment %}
-    </div>
-       </div>
-    <div class="col-md-6">
-       <div class="form-group">
-        {{form.num_unidades}}
-        {% comment %} <input type="number" class="form-control form-control-alternative" id="num_unidades" name = "Num. Unidades" placeholder="Numero de unidades"> {% endcomment %}
-    </div>
-       </div>
-    <div class="col-md-6">
-       <div class="form-group">
-       {{form.num_cajas}}
-        {% comment %} <input type="number" class="form-control form-control-alternative" id="num_cajas" name = "Num. Cajas" placeholder="Numero de cajas"> {% endcomment %}
-    </div>
-   </div>
-    <div class="col-md-6">
-       <div class="form-group">
-       {{form.caducidad}}
-        {% comment %} <input type="date" class="form-control form-control-alternative" id="caducidad" name = "Caducidad" placeholder="Caducidad"> {% endcomment %}
-    </div>
-       </div>
-    <div class="col-md-6">
-       <div class="form-group">
-         {{form.tipo_bienes}}
-        {% comment %} <select class="form-control form-control-alternative" id="tipo_bienes" name="Tipo de bienes">
-                <option label="Medicamento" value="MED"></option>
-                <option label="Insumo" value="INS"></option>
-        </select> {% endcomment %}
-    </div>
-       </div>
-    <div class="col-md-6">
-       <div class="form-group">
-         {{form.lote}}
-         {% comment %} <input type="file" class="form-control form-control-alternative" id ="codigo_barras" name = "Codigo de barras" alt="Escanea el codigo de barras">{% endcomment %}
-    </div> 
-       </div>
-      </div>
-    </div>
-    <div class="col-md-6"> 
-      <div class="form-group">
-        <button type="submit" class="btn btn-info">Enviar datos</button>
-      </div>
-    </div>
-  </div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 {{form.tipo}}
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 {{form.num_unidades}}
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 {{form.num_cajas}}
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 {{form.caducidad}}
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 {{form.tipo_bienes}}
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 {{form.lote}}
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group">
+                                 {{form.codigo_barras}}
+                              </div>
+                           </div>
+                        </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="form-group">
+                     <button type="submit" class="btn btn-info">Enviar datos</button>
+                  </div>
+               </div>
+            </div>
 </form>
 
 
 {% endblock content %}
 
-<!-- Specific JS goes HERE --> 
+<!-- Specific JS goes HERE -->
 {% block javascripts %}{% endblock javascripts %}

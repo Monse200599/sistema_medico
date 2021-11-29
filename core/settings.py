@@ -36,7 +36,8 @@ INSTALLED_APPS = [
     'apps.puestos',
     'apps.bienes',
     'apps.recetas',
-    'apps.bitacoras'
+    'apps.bitacoras',
+    'apps.empleados',
 ]
 
 MIDDLEWARE = [
@@ -104,9 +105,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-es'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Monterrey'
 
 USE_I18N = True
 

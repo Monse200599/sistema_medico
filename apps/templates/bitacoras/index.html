@@ -40,11 +40,9 @@
               <thead class="thead-light">
                 <tr>
                   <th scope="col" class="sort" data-sort="cantidad">Cantidad</th>
-                  <th scope="col" class="sort" data-sort="Fecha">Fecha</th>
-                  <th scope="col" class="sort" data-sort="Hora">Hora</th>
                   <th scope="col" class="sort" data-sort="Entrada">Entrada</th>
-                  <th scope="col" class="sort" data-sort="Usuario">Usuario</th>
-                  <th scope="col" class="sort" data-sort="Receta">Receta</th>
+                  <th scope="col" class="sort" data-sort="Area">Fecha de Registro</th>
+                  <th scope="col" class="sort" data-sort="Usuario">Empleado</th>
                   <th scope="col" class="sort" data-sort="Bienes">Bienes</th>
                   <th scope="col" class="sort" data-sort="Area">Area</th>
                   <th scope="col" class="sort" data-sort="Acciones">Acciones</th>
@@ -57,26 +55,22 @@
                       {{bitacora.cantidad}}
                     </td>
                     <td class="budget">
-                      {{bitacora.fecha}}
-                    </td>
-                    <td class="budget">
-                      {{bitacora.hora}}
-                    </td>
-                    <td class="budget">
                       {{bitacora.entrada}}
                     </td>
                     <td class="budget">
-                      {{bitacora.usuario}}
+                      {{bitacora.created_at}}
                     </td>
                     <td class="budget">
-                      {{bitacora.receta}}
+                      {{bitacora.empleado}}
                     </td>
                     <td class="budget">
                       {{bitacora.bienes}}
                     </td>
                     <td class="budget">
-                      {{bitacora.area}}
+                      {{ bitacora.empleado.area}}
                     </td>
+
+
 
                     <td class="text-right">
                       <div class="dropdown">

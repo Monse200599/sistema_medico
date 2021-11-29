@@ -11,4 +11,5 @@ class BienesSerializer(ModelSerializer):
                   'lote',
                   'caducidad',
                   'tipo_bienes',
+                  'codigo_barras',
                   ]

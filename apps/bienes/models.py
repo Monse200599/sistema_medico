@@ -12,7 +12,7 @@ class Bienes(models.Model):
     lote = models.CharField(max_length=12)
     caducidad = models.DateField()
     tipo_bienes = models.CharField(max_length=3, choices=BIENES_CHOICES)
-    # codigo_barras = models.ImageField(null = True)
+    codigo_barras = models.CharField(max_length=12, unique=True)
 
     def __str__(self):
-        return self.tipo
+        return "{}: {}".format(self.tipo, self.codigo_barras)
