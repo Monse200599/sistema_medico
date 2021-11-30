@@ -19,10 +19,14 @@ class AreasViewSet(ViewSet):
             return Response(status=status.HTTP_404_NOT_FOUND, data={"mensaje": "Elemento no encontrado"})
 
     def create(self, request):
-        serializer = AreaSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return Response(status=status.HTTP_200_OK, data=serializer.data)
+        try:
+            serializer = AreaSerializer(data=request.data)
+            serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response(status=status.HTTP_200_OK, data=serializer.data)
+        except:
+            print(request.data)
+            return Response(status=status.HTTP_404_NOT_FOUND, data=request.data)
     
     def update(self, request, pk:int):
         try:
